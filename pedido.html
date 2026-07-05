@@ -1,4 +1,76 @@
-<section id='pedido' class='container my-5'>
-  <h2 class='text-danger fw-bold'>🛒 Haz tu pedido</h2>
-  <!-- aquí va el formulario completo que te pasé -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+<section id="pedido" class="container my-5">
+  <h2 class="text-danger fw-bold">🛒 Haz tu pedido</h2>
+
+  <label for="combo">🍗 Elige tu combo:</label>
+  <select id="combo" class="form-select" onchange="actualizarTotal()">
+    <option value="19000">Combo 1 - 5 Alas + Papas + Gaseosa ($19.000)</option>
+    <option value="20000">Combo 2 - 6 Alas + Papas + Gaseosa ($20.000)</option>
+    <option value="22000">Combo 3 - 8 Alas + Papas + Gaseosa ($22.000)</option>
+    <option value="25000">Combo 4 - 10 Alas + Papas + Gaseosa ($25.000)</option>
+    <option value="27000">Combo 5 - 12 Alas + Papas + Gaseosa ($27.000)</option>
+    <option value="43000">Combo Pareja - 16 Alas + Papas + 2 Gaseosas ($43.000)</option>
+    <option value="66000">Combo Familiar - 25 Alas + Papas + Gaseosa 1.5L ($66.000)</option>
+  </select>
+
+  <label for="salsa" class="mt-3">🌶️ Elige tu salsa:</label>
+  <select id="salsa" class="form-select">
+    <option>BBQ</option>
+    <option>Miel Mostaza</option>
+    <option>Maracuyá</option>
+    <option>Frutos Rojos</option>
+    <option>Búfala</option>
+  </select>
+
+  <label for="bebida" class="mt-3">🥤 Elige tu bebida:</label>
+  <select id="bebida" class="form-select">
+    <option>Gaseosa personal</option>
+    <option>Hit 500ml</option>
+    <option>Agua</option>
+    <option>Cerveza nacional</option>
+    <option>Cerveza importada</option>
+    <option>Jugo en leche</option>
+    <option>Jugo en agua</option>
+    <option>Limonada de coco</option>
+  </select>
+
+  <label for="direccion" class="mt-3">📍 Dirección de entrega:</label>
+  <input type="text" id="direccion" class="form-control" placeholder="Ej: Diagonal 85 #79-58">
+
+  <label for="pago" class="mt-3">💳 Método de pago:</label>
+  <select id="pago" class="form-select">
+    <option>Efectivo</option>
+    <option>Ahorros Bancolombia 91243671227</option>
+    <option>Nequi 3103548045</option>
+  </select>
+
+  <div class="mt-4 p-3 border rounded bg-light">
+    <h5 class="text-danger">🧾 Resumen del pedido</h5>
+    <p id="resumen">Selecciona tu combo para ver el total.</p>
+    <p class="fw-bold">💰 Total: <span id="total">$0</span></p>
+  </div>
+
+  <button class="btn btn-success mt-4 fw-bold" onclick="enviarPedido()">📲 Confirmar y enviar por WhatsApp</button>
 </section>
+
+<script>
+function actualizarTotal() {
+  const combo = document.getElementById('combo');
+  const precio = parseInt(combo.value);
+  document.getElementById('total').innerText = `$${precio.toLocaleString('es-CO')}`;
+}
+
+function enviarPedido() {
+  const combo = document.getElementById('combo').options[document.getElementById('combo').selectedIndex].text;
+  const precio = document.getElementById('combo').value;
+  const salsa = document.getElementById('salsa').value;
+  const bebida = document.getElementById('bebida').value;
+  const direccion = document.getElementById('direccion').value;
+  const pago = document.getElementById('pago').value;
+
+  const mensaje = `Hola Sweet Wings 🍗\nQuiero pedir:\n${combo}\nSalsa: ${salsa}\nBebida: ${bebida}\n📍 Dirección: ${direccion}\n💳 Pago: ${pago}\n💰 Total: $${parseInt(precio).toLocaleString('es-CO')}`;
+  const url = `https://wa.me/573103548045?text=${encodeURIComponent(mensaje)}`;
+  window.open(url, '_blank');
+}
+</script>
