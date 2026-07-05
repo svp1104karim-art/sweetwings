@@ -66,27 +66,105 @@ button:active {
 <section id="pedido" class="container my-5">
   <h2 class="fw-bold">🛒 Haz tu pedido Sweet Wings</h2>
 
-  <!-- Combo -->
-  <label for="combo">🍗 Elige tu combo:</label>
-  <select id="combo" class="form-select" onchange="actualizarTotal()">
-    <option value="19000">Combo 1 - 5 Alas + Papas + Gaseosa ($19.000)</option>
-    <option value="20000">Combo 2 - 6 Alas + Papas + Gaseosa ($20.000)</option>
-    <option value="22000">Combo 3 - 8 Alas + Papas + Gaseosa ($22.000)</option>
-    <option value="25000">Combo 4 - 10 Alas + Papas + Gaseosa ($25.000)</option>
-    <option value="27000">Combo 5 - 12 Alas + Papas + Gaseosa ($27.000)</option>
-    <option value="43000">Combo Pareja - 16 Alas + Papas + 2 Gaseosas ($43.000)</option>
-    <option value="66000">Combo Familiar - 25 Alas + Papas + Gaseosa 1.5L ($66.000)</option>
-  </select>
+  <!-- Combos en tarjetas -->
+  <label>🍗 Elige tu combo:</label>
+  <div class="row">
+    <div class="col-md-4">
+      <div class="card shadow-sm m-2" style="width: 18rem;">
+        <div class="card-body text-center">
+          <h5 class="card-title">Combo 1</h5>
+          <p class="card-text">5 Alas + Papas + Gaseosa</p>
+          <p class="fw-bold text-danger">$19.000</p>
+          <button class="btn btn-success" onclick="agregarAlCarrito('Combo 1', 19000)">Añadir al carrito</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card shadow-sm m-2" style="width: 18rem;">
+        <div class="card-body text-center">
+          <h5 class="card-title">Combo 2</h5>
+          <p class="card-text">6 Alas + Papas + Gaseosa</p>
+          <p class="fw-bold text-danger">$20.000</p>
+          <button class="btn btn-success" onclick="agregarAlCarrito('Combo 2', 20000)">Añadir al carrito</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card shadow-sm m-2" style="width: 18rem;">
+        <div class="card-body text-center">
+          <h5 class="card-title">Combo 3</h5>
+          <p class="card-text">8 Alas + Papas + Gaseosa</p>
+          <p class="fw-bold text-danger">$22.000</p>
+          <button class="btn btn-success" onclick="agregarAlCarrito('Combo 3', 22000)">Añadir al carrito</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card shadow-sm m-2" style="width: 18rem;">
+        <div class="card-body text-center">
+          <h5 class="card-title">Combo 4</h5>
+          <p class="card-text">10 Alas + Papas + Gaseosa</p>
+          <p class="fw-bold text-danger">$25.000</p>
+          <button class="btn btn-success" onclick="agregarAlCarrito('Combo 4', 25000)">Añadir al carrito</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card shadow-sm m-2" style="width: 18rem;">
+        <div class="card-body text-center">
+          <h5 class="card-title">Combo 5</h5>
+          <p class="card-text">12 Alas + Papas + Gaseosa</p>
+          <p class="fw-bold text-danger">$27.000</p>
+          <button class="btn btn-success" onclick="agregarAlCarrito('Combo 5', 27000)">Añadir al carrito</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card shadow-sm m-2" style="width: 18rem;">
+        <div class="card-body text-center">
+          <h5 class="card-title">Combo Pareja</h5>
+          <p class="card-text">16 Alas + Papas + 2 Gaseosas</p>
+          <p class="fw-bold text-danger">$43.000</p>
+          <button class="btn btn-success" onclick="agregarAlCarrito('Combo Pareja', 43000)">Añadir al carrito</button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card shadow-sm m-2" style="width: 18rem;">
+        <div class="card-body text-center">
+          <h5 class="card-title">Combo Familiar</h5>
+          <p class="card-text">25 Alas + Papas + Gaseosa 1.5L</p>
+          <p class="fw-bold text-danger">$66.000</p>
+          <button class="btn btn-success" onclick="agregarAlCarrito('Combo Familiar', 66000)">Añadir al carrito</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  <!-- Salsa -->
-  <label for="salsa" class="mt-3">🌶️ Elige tu salsa:</label>
-  <select id="salsa" class="form-select">
-    <option>BBQ</option>
-    <option>Miel Mostaza</option>
-    <option>Maracuyá</option>
-    <option>Frutos Rojos</option>
-    <option>Búfala</option>
-  </select>
+  <!-- Salsas -->
+  <label class="mt-3">🌶️ Elige tu salsa (puedes elegir varias):</label>
+  <div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="salsa1" value="BBQ">
+      <label class="form-check-label" for="salsa1">BBQ</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="salsa2" value="Miel Mostaza">
+      <label class="form-check-label" for="salsa2">Miel Mostaza</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="salsa3" value="Maracuyá">
+      <label class="form-check-label" for="salsa3">Maracuyá</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="salsa4" value="Frutos Rojos">
+      <label class="form-check-label" for="salsa4">Frutos Rojos</label>
+    </div>
+    <div class="form-check form-check-inline">
+      <input class="form-check-input" type="checkbox" id="salsa5" value="Búfala">
+      <label class="form-check-label" for="salsa5">Búfala</label>
+    </div>
+  </div>
 
   <!-- Bebida -->
   <label for="bebida" class="mt-3">🥤 Elige tu bebida:</label>
@@ -113,16 +191,49 @@ button:active {
     <option>Nequi 3103548045</option>
   </select>
 
-  <!-- Resumen -->
-  <div class="mt-4 p-3 border rounded bg-light">
-    <h5 class="text-danger">🧾 Resumen del pedido</h5>
-    <p id="resumen">Selecciona tu combo para ver el total.</p>
+  <!-- Carrito -->
+  <div id="carrito" class="mt-4 p-3 border rounded bg-light">
+    <h5 class="text-danger">🛒 Carrito de compras</h5>
+    <ul id="listaCarrito"></ul>
     <p class="fw-bold">💰 Total: <span id="total">$0</span></p>
   </div>
 
   <!-- Botón -->
   <button class="btn btn-success mt-4 fw-bold" onclick="enviarPedido()">📲 Confirmar y enviar por WhatsApp</button>
 </section>
+
+<script>
+let carrito = [];
+let total = 0;
+
+function agregarAlCarrito(producto, precio) {
+  carrito.push({producto, precio});
+  total += precio;
+  actualizarCarrito();
+}
+
+function actualizarCarrito() {
+  const lista = document.getElementById('listaCarrito');
+  lista.innerHTML = "";
+  carrito.forEach(item => {
+    const li = document.createElement('li');
+    li.textContent = `${item.producto} - $${item.precio.toLocaleString('es-CO')}`;
+    lista.appendChild(li);
+  });
+  document.getElementById('total').innerText = `$${total.toLocaleString('es-CO')}`;
+}
+
+function enviarPedido() {
+  const direccion = document.getElementById('direccion').value;
+  const pago = document.getElementById('pago').value;
+  const salsas = Array.from(document.querySelectorAll('input[type="checkbox"]:checked'))
+                      .map(cb => cb.value).join(", ");
+
+  const mensaje = `Hola Sweet Wings 🍗\nQuiero pedir:\n${carrito.map(i => i.producto).join(", ")}\nSalsas: ${salsas}\n📍 Dirección: ${direccion}\n💳 Pago: ${pago}\n💰 Total: $${total.toLocaleString('es-CO')}`;
+  const url = `https://wa.me/573103548045?text=${encodeURIComponent(mensaje)}`;
+  window.open(url, '_blank');
+}
+</script>
 
 <!-- Footer Sweet Wings -->
 <div style="
