@@ -14,21 +14,52 @@
 </div> <!-- Cargar Bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- Estilos Sweet Wings -->
 <style>
+body {
+  background-color: #fff8f0;
+  font-family: 'Poppins', sans-serif;
+}
+
 h2 {
-  color: #C8102E; /* rojo Sweet Wings */
+  color: #C8102E;
+  font-weight: 700;
 }
+
 .btn-success {
-  background-color: #25D366; /* verde WhatsApp */
+  background-color: #25D366;
   border: none;
-  font-size: 1.1rem;
+  border-radius: 50px;
+  font-size: 1.2rem;
+  padding: 12px 30px;
+  box-shadow: 0 4px 10px rgba(37, 211, 102, 0.4);
+  transition: all 0.3s ease;
 }
+.btn-success:hover {
+  background-color: #1ebe5d;
+  transform: scale(1.05);
+}
+
+.form-select, .form-control {
+  border-radius: 12px;
+  border: 2px solid #FFD700;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+
 .container {
-  border: 2px solid #FFD700; /* dorado */
-  border-radius: 10px;
-  padding: 20px;
+  border: 2px solid #FFD700;
+  border-radius: 20px;
+  padding: 25px;
   background-color: #fff;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+}
+
+#total {
+  color: #C8102E;
+  font-size: 1.3rem;
+}
+
+button:active {
+  transform: scale(0.98);
 }
 </style>
 
