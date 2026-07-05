@@ -1,12 +1,21 @@
-<!-- Cargar Bootstrap -->
+<!-- Banner Sweet Wings -->
+<div style="
+  background-color:#C8102E; 
+  color:white; 
+  padding:20px; 
+  text-align:center; 
+  border-bottom:5px solid #FFD700;">
+  <h1 style="margin:0; font-size:2.5rem; font-weight:bold;">
+    🍗 Sweet Wings
+  </h1>
+  <p style="margin:0; font-size:1.2rem;">
+    ¡El mejor sabor de alas en tu ciudad!
+  </p>
+</div> <!-- Cargar Bootstrap -->
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- Estilos personalizados -->
+<!-- Estilos Sweet Wings -->
 <style>
-body {
-  background-color: #fff8f0; /* fondo cálido */
-  font-family: Arial, sans-serif;
-}
 h2 {
   color: #C8102E; /* rojo Sweet Wings */
 }
@@ -24,9 +33,9 @@ h2 {
 </style>
 
 <section id="pedido" class="container my-5">
-  <h2 class="fw-bold">🛒 Haz tu pedido</h2>
+  <h2 class="fw-bold">🛒 Haz tu pedido Sweet Wings</h2>
 
-  <!-- Selección de combo -->
+  <!-- Combo -->
   <label for="combo">🍗 Elige tu combo:</label>
   <select id="combo" class="form-select" onchange="actualizarTotal()">
     <option value="19000">Combo 1 - 5 Alas + Papas + Gaseosa ($19.000)</option>
@@ -83,24 +92,3 @@ h2 {
   <!-- Botón -->
   <button class="btn btn-success mt-4 fw-bold" onclick="enviarPedido()">📲 Confirmar y enviar por WhatsApp</button>
 </section>
-
-<script>
-function actualizarTotal() {
-  const combo = document.getElementById('combo');
-  const precio = parseInt(combo.value);
-  document.getElementById('total').innerText = `$${precio.toLocaleString('es-CO')}`;
-}
-
-function enviarPedido() {
-  const combo = document.getElementById('combo').options[document.getElementById('combo').selectedIndex].text;
-  const precio = document.getElementById('combo').value;
-  const salsa = document.getElementById('salsa').value;
-  const bebida = document.getElementById('bebida').value;
-  const direccion = document.getElementById('direccion').value;
-  const pago = document.getElementById('pago').value;
-
-  const mensaje = `Hola Sweet Wings 🍗\nQuiero pedir:\n${combo}\nSalsa: ${salsa}\nBebida: ${bebida}\n📍 Dirección: ${direccion}\n💳 Pago: ${pago}\n💰 Total: $${parseInt(precio).toLocaleString('es-CO')}`;
-  const url = `https://wa.me/573103548045?text=${encodeURIComponent(mensaje)}`;
-  window.open(url, '_blank');
-}
-</script>
